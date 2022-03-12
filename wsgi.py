@@ -1,3 +1,3 @@
-from main import app as app
-if __name__ == "main":
-  app.run(debug=True, threaded = True)
+from main import app 
+if __name__ == "__main__":
+  app.run()
