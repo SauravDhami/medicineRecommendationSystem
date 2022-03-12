@@ -44,24 +44,24 @@ import json
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def index():
     return "<h1>Welcome to CodingX</h1>"
 
 # model = pickle.load(open('drug.pkl', 'rb'))
 
-@app.route('/drug', methods=['POST'])
+@app.route("/drug", methods=['POST'])
 def recommend_drugs():
     medicine = request.form['med']
     res = Drug_Recommendation_Output.recommend(medicine)
     return {"data": res}
 
 
-@app.route('/check', methods=['GET'])
+@app.route("/check", methods=['GET'])
 def check():
     return {
         "Hello": "Working"
     }
 
-if __name__ == "__main__":
+if __name__ == '__main__':
   app.run()
