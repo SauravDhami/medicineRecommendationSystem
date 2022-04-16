@@ -11,3 +11,9 @@ def recommend(medicine):
     return medicine_list
 
 
+def recommendcondition(con):
+    con = con.lower()
+    conditionName = df[df['condition'] == con]
+    medicines_list = list(conditionName['drugName'].values[0:6])
+   
+    return medicines_list

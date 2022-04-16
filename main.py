@@ -12,7 +12,6 @@ app = Flask(__name__)
 def index():
     return "<h1>Welcome to CodingX</h1>"
 
-# model = pickle.load(open('drug.pkl', 'rb'))
 
 @app.route("/drug", methods=['POST'])
 def recommend_drugs():
@@ -20,6 +19,14 @@ def recommend_drugs():
     res = Drug_Recommendation_Output.recommend(medicine)
     res = res[1:]
     return {"data": res}
+
+@app.route("/condition", methods=['POST'])
+def recommend_Condition():
+    condition = request.form['med']
+    response = Drug_Recommendation_Output.recommendcondition(condition)
+    response = response[:]
+    return {"data": response}
+    
 
 
 @app.route("/check", methods=['GET'])
