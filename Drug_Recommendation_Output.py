@@ -22,5 +22,5 @@ def recommendCondition(con):
 def recommend_detail(medicine):
     medicine =  medicine.lower()
     result = df.loc[df['drugName'] == medicine]
-    
-    return result.head(1).to_dict()
+    resultant_df = result.head(1).reset_index(drop= True)
+    return resultant_df.to_dict()

@@ -31,17 +31,14 @@ def recommend_drugs():
 @app.route("/condition", methods=['POST'])
 def recommend_Condition():
     condition = request.form['con']
-    print(condition)
     responseCondition = Drug_Recommendation_Output.recommendCondition(condition)
     responseCondition = responseCondition[:]
-    print(responseCondition)
     return {"data": responseCondition}
 
 
 @app.route("/details", methods=['POST'])
 def recommend_Detail():
     medname = request.form['det']
-    print(medname)
     responseDetail = Drug_Recommendation_Output.recommend_detail(medname)
     # response = response[:]
     return {"data": responseDetail}
