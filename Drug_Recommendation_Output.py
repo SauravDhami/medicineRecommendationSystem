@@ -17,3 +17,11 @@ def recommendcondition(con):
     medicines_list = list(conditionName['drugName'].values[0:6])
    
     return medicines_list
+
+
+def recommend_detail(medicine):
+    medicine =  medicine.lower()
+    df.set_index("drugName", inplace = True)
+    result = df.loc[medicine]
+   
+    return result.head(1).to_dict()
