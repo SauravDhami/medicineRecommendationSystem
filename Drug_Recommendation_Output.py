@@ -14,14 +14,13 @@ def recommend(medicine):
 def recommendCondition(con):
     con = con.lower()
     conditionName = df[df['condition'] == con]
-    medicine_list = list(set(conditionName['drugName'].values[0:11]))
+    med_list = list(set(conditionName['drugName'].values[0:11]))
    
-    return medicine_list
+    return med_list
 
 
 def recommend_detail(medicine):
     medicine =  medicine.lower()
-    df.set_index("drugName", inplace = True)
-    result = df.loc[medicine]
-   
+    result = df.loc[df['drugName'] == medicine]
+    
     return result.head(1).to_dict()
