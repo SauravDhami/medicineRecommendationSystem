@@ -6,7 +6,7 @@ def recommend(medicine):
     condition= df[df['drugName'] == medicine].condition
     condition.values[0]
     medicineName = df[df['condition'] == condition.values[0]]
-    medicine_list = list(medicineName['drugName'].values[0:6])
+    medicine_list = list(set(medicineName['drugName'].values[0:11]))
    
     return medicine_list
 
@@ -14,9 +14,9 @@ def recommend(medicine):
 def recommendCondition(con):
     con = con.lower()
     conditionName = df[df['condition'] == con]
-    medicines_list = list(conditionName['drugName'].values[0:6])
+    medicine_list = list(set(conditionName['drugName'].values[0:11]))
    
-    return medicines_list
+    return medicine_list
 
 
 def recommend_detail(medicine):
